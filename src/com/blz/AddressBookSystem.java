@@ -1,18 +1,39 @@
 package com.blz;
 
-public class AddressBookSystem {
-    public static void main(String[] args) {
-        System.out.println("Welcome to address book program");
+import java.util.ArrayList;
+import java.util.Scanner;
 
-        Person person = new Person("Ashish", "Kumar", "Allahabad, UP","Allahabad","UP","221404", 9453627297L);
+public class AddressBookSystem  implements Info {
+    // ArrayList Declarer
+    ArrayList<Person> book = new ArrayList<>();
+    // Creating scanner class object
+    Scanner sc = new Scanner(System.in);
+    public void add(){
+        // user input to print the details
+        System.out.println("Enter the Firstname: ");
+        String firstName = sc.nextLine();
+        System.out.println("Enter the Lastname: ");
+        String lastname = sc.nextLine();
+        System.out.println("Enter the Address: ");
+        String address = sc.nextLine();
+        System.out.println("Enter the City: ");
+        String city = sc.nextLine();
+        System.out.println("Enter the State: ");
+        String state = sc.nextLine();
+        System.out.println("Enter the Zip code : ");
+        String zip = sc.nextLine();
+        System.out.println("Enter the Phone Number: ");
+        long phoneNumber = sc.nextLong();
 
-        System.out.println("Firstname:"+ person.getFirstName());
-        System.out.println("Lastname:"+ person.getLastName());
-        System.out.println("Address:"+ person.getAddress());
-        System.out.println("City:"+ person.getCity());
-        System.out.println("State:"+person.getState());
-        System.out.println("Phone Number:"+ person.getPhoneNumber());
-        System.out.println("Zip:"+ person.getZip());
+        Person person = new Person(firstName, lastname, address, city, state, zip, phoneNumber);
+        book.add(person);
+        System.out.println("Successfully Add.....");
     }
+    // Display the person details added
+    public void display(){
+        for (Person person: book){
+            System.out.println(person);
+        }
 
+    }
 }
