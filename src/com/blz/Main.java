@@ -20,8 +20,18 @@ public class Main {
                         addressBookSystem.add();
                         break;
                 case 2:
+                    System.out.println("Enter your firstname to edit your details");
+                    String firstName = sc.next();
+                    addressBookSystem.edit(firstName);
+                         break;
+                case 3:
                          addressBookSystem.display();
                          break;
+                case 4:
+                    System.out.println("Enter your firstname to delete your details ");
+                    String firstname = sc.next();
+                    addressBookSystem.delete(firstname);
+                    break;
                 default:
                           status = false;
 
