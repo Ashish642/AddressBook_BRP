@@ -29,6 +29,33 @@ public class AddressBookSystem  implements Info {
         book.add(person);
         System.out.println("Successfully Add.....");
     }
+
+    /* Method to edit or Updata the details using firtName */
+    public void edit(String firstName){
+        for (int search = 0; search< book.size(); search++){
+            if (book.get(search).getFirstName().equalsIgnoreCase(firstName)) {
+                Person person = book.get(search);
+                System.out.println("Hey "+ person.getFirstName() + "Please edit your details");
+                System.out.println("Hey "+ person.getFirstName() + "Please edit your address");
+                sc.next();
+                String address = sc.nextLine();
+                person.setAddress(address);
+                System.out.println("Hey "+ person.getFirstName() + "Please edit your city");
+                String city = sc.next();
+                person.setCity(city);
+                System.out.println("Hey "+ person.getFirstName() + "Please edit your state");
+                String state = sc.next();
+                person.setState(state);
+                System.out.println("Hey "+ person.getFirstName() + "Please edit your Zip");
+                String zip = sc.next();
+                person.setZip(zip);
+                System.out.println("Hey "+ person.getFirstName() + "Please edit your phone number");
+                long phone = sc.nextLong();
+                person.setPhoneNumber(phone);
+            }
+        }
+    }
+
     // Display the person details added
     public void display(){
         for (Person person: book){
